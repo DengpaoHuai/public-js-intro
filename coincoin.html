@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const getData = async () => {
+        let response = await fetch("https://random.dog/woof.json");
+        console.log(response);
+        const results = await response.json();
+        console.log(results);
+
+        const app = document.getElementById("app");
+
+        const image = document.createElement("img");
+        image.src = results.url;
+        app.appendChild(image);
+      };
+
+      getData();
+    </script>
+  </body>
+</html>
