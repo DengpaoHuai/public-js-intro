@@ -12,6 +12,7 @@ const getData = async () => {
   let response = await fetch("https://swapi-api.hbtn.io/api/planets/");
   console.log(response);
   const results = await response.json();
+  //ici, ça change !!!!
 };
 
 getData();
