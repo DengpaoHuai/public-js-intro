@@ -7,32 +7,22 @@
   </head>
   <body>
     <div id="app"></div>
-
     <script>
       const getData = async () => {
-        let response = await fetch("https://random.dog/woof.json");
+        let response = await fetch("http://localhost:3000/countries/list");
         console.log(response);
         const results = await response.json();
         console.log(results);
 
         const app = document.getElementById("app");
-
-        const image = document.createElement("img");
-        image.src = results.url;
-        app.appendChild(image);
+        results.forEach((element) => {
+          const p = document.createElement("p");
+          p.innerText = element.name;
+          app.appendChild(p);
+        });
       };
 
       getData();
-
-      const getShiba = async () => {
-        let response = await fetch(
-          "https://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true"
-        );
-        console.log(response);
-        const results = await response.json();
-        console.log(results);
-      };
-      getShiba();
     </script>
   </body>
 </html>
